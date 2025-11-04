@@ -5,6 +5,7 @@ from supabase import create_client, Client
 from datetime import datetime
 from dotenv import load_dotenv
 import os, uuid
+from mangum import Mangum
 
 load_dotenv()
 
@@ -92,3 +93,4 @@ async def log_conversation(data: ConversationRequest):
         return {"message": "Conversation logged successfully"}
     except Exception as e:
         return {"error": str(e)}
+handler = Mangum(app)
