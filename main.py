@@ -1,6 +1,5 @@
+import uvicorn
 from api.app import app
 
-# Optional health check route for testing root access
-@app.get("/")
-def root():
-    return {"status": "ok", "message": "Discord Attendance → Google Sheets is running."}
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
