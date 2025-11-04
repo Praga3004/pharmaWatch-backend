@@ -1,6 +1,6 @@
 from api.app import app
 
-# This line allows local running: `uvicorn main:app --reload`
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+# Optional health check route for testing root access
+@app.get("/")
+def root():
+    return {"status": "ok", "message": "Discord Attendance → Google Sheets is running."}
